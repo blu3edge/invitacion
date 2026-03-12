@@ -28,6 +28,27 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-0f3JO-8EMMgSxlEF4vNqeWuMKmEhUTE&loading=async&libraries=maps&v=beta" defer>
 </script>
 
+    <style>
+      #accountAside {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background: #fff;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+        transition: right 0.3s ease;
+        z-index: 1050;
+        padding: 20px;
+        color: #000;
+      }
+      #accountAside.open {
+        right: 0;
+      }
+      #accountAside h5, #accountAside p {
+        color: #000;
+      }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -395,9 +416,28 @@ Pero si además quieres aportar a nuestras próximas locuras, viajes o antojos d
                 
             </div>
             <p class="text-white">Presiona el QR para enviar tu regalo o escanealo con tu celular.</p>
+            <p class="text-white">O también puedes hacer una transferencia a la cuenta que aparece al presionar el botón "Ver cuenta".   
+            </p>
             <a href="https://milistadenovios.cl/enviar-regalo?id=30091" target="_blank" rel="noopener noreferrer">
             <img class="img-fluid ml-md-3" src="img/qr_regalo.png" alt="">
         </a>
+        <div class="text-center mt-3">
+            <button id="btnAccount" class="btn btn-primary">Ver cuenta</button>
+        </div>
+        <aside id="accountAside">
+            <div class="h-100">
+                <div class="section-title position-relative text-center mb-3">
+                    <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Cuenta para transferencias</h6>
+                    <h1 class="font-secondary display-4" style="font-size:1.5rem;">Detalles</h1>
+                    <i class="far fa-heart text-dark"></i>
+                </div>
+                <p>Nombre: Maite Marcela Lopez Orellana</p>
+                <p>RUT: 17.681.613-9</p>
+                <p>Banco: Coopeuch</p>
+                <p>Cuenta Vista: 240576697</p>
+                <button id="closeAccount" class="btn btn-sm btn-primary mt-2">Cerrar</button>
+            </div>
+        </aside>
             <div class="d-flex justify-content-center py-2">
 
                 
@@ -429,6 +469,17 @@ Pero si además quieres aportar a nuestras próximas locuras, viajes o antojos d
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var aside = document.getElementById('accountAside');
+        document.getElementById('btnAccount').addEventListener('click', function() {
+          aside.classList.add('open');
+        });
+        document.getElementById('closeAccount').addEventListener('click', function() {
+          aside.classList.remove('open');
+        });
+      });
+    </script>
 </body>
 
 </html>
