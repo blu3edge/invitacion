@@ -108,7 +108,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "Hoy es el día 17:00 hrs";
+    document.getElementById("demo").innerHTML = "Gracias por haber sido parte de huestra historia.";
   }
 }, 1000);
 
